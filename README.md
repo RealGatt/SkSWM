@@ -1,0 +1,2 @@
+# SkSWM
+Skript SlimeWorldManager addon
