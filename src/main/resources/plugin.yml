@@ -1,0 +1,5 @@
+name: SkSWM
+author: Gatt
+version: ${project.version}
+main: space.gatt.skswm.SWMAddon
+depend: [Skript, SlimeWorldManager]
