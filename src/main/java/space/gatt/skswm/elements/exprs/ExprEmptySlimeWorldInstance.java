@@ -26,8 +26,8 @@ public class ExprEmptySlimeWorldInstance extends SimpleExpression<SlimeWorld> {
 
     static {
         Skript.registerExpression(ExprEmptySlimeWorldInstance.class, SlimeWorld.class, ExpressionType.SIMPLE,
-                "[new ]empty (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%",
-                "[new ](read-only|readonly|read only) (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%");
+                "[new ]empty (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %slimepropertymap%",
+                "[new ](read-only|readonly|read only) (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %slimepropertymap%");
     }
 
     private boolean readOnly = false;
@@ -58,7 +58,10 @@ public class ExprEmptySlimeWorldInstance extends SimpleExpression<SlimeWorld> {
         SlimePropertyMap props = this.properties.getSingle(event);
 
         try {
-            sl = SWMAddon.getInstance().getSlimeInstance().createEmptyWorld(loader, worldName, readOnly, props);
+            sl = SWMAddon.getInstance().getSlimeInstance().createEmptyWorld(loader,
+                    worldName,
+                    readOnly,
+                    props);
         } catch (Exception e) {
             SWMAddon.log(event.getEventName() + " attempted to load a SlimeWorld that threw an error. Probably an invalid name?");
             e.printStackTrace();

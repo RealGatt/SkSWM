@@ -26,8 +26,8 @@ public class ExprSlimeWorldInstance extends SimpleExpression<SlimeWorld> {
 
     static {
         Skript.registerExpression(ExprSlimeWorldInstance.class, SlimeWorld.class, ExpressionType.SIMPLE,
-                "(slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%",
-                "(read-only|readonly|read only) (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%");
+                "(slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %slimepropertymap%",
+                "(read-only|readonly|read only) (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %slimepropertymap%");
     }
 
     private boolean readOnly = false;

@@ -25,7 +25,7 @@ import space.gatt.skswm.enums.SWMProperty;
 public class ExprSlimePropertyValue extends SimpleExpression<Object> {
 
     static {
-        Skript.registerExpression(ExprSlimePropertyValue.class, Object.class, ExpressionType.SIMPLE, "%swmpropertytype% of %swmproperties%");
+        Skript.registerExpression(ExprSlimePropertyValue.class, Object.class, ExpressionType.SIMPLE, "%swmproperty% of %slimepropertymap%");
     }
 
     private Expression<SlimePropertyMap> properties;

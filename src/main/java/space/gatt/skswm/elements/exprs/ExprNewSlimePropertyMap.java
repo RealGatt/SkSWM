@@ -15,6 +15,7 @@ import com.grinderwolf.swm.api.world.SlimeWorld;
 import com.grinderwolf.swm.api.world.properties.SlimePropertyMap;
 import org.bukkit.event.Event;
 import space.gatt.skswm.SWMAddon;
+import space.gatt.skswm.enums.SWMProperty;
 import space.gatt.skswm.enums.SWMStorageType;
 
 @Name("SlimeWorldManager - New SlimePropertyMap Instance")
@@ -37,6 +38,19 @@ public class ExprNewSlimePropertyMap extends SimpleExpression<SlimePropertyMap> 
     @Override
     protected SlimePropertyMap[] get(Event event) {
         SlimePropertyMap map = new SlimePropertyMap();
+        for (SWMProperty prop : SWMProperty.values()){
+            switch (prop.getValueType()){
+                case "String":
+                    map.setString(prop.getProperty(), (String)prop.getProperty().getDefaultValue());
+                    break;
+                case "Boolean":
+                    map.setBoolean(prop.getProperty(), (Boolean) prop.getProperty().getDefaultValue());
+                    break;
+                case "Integer":
+                    map.setInt(prop.getProperty(), (Integer) prop.getProperty().getDefaultValue());
+                    break;
+            }
+        }
         return new SlimePropertyMap[]{map};
     }
 

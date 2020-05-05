@@ -60,9 +60,9 @@ public class SWMAddon extends JavaPlugin {
         try {
 
             EnumClassInfo.create(SWMStorageType.class, "swmstoragetype").register();
-            EnumClassInfo.create(SWMProperty.class, "swmpropertytype").register();
+            EnumClassInfo.create(SWMProperty.class, "swmproperty").register();
 
-            TypeClassInfo.create(SlimePropertyMap.class, "swmproperties").register();
+            TypeClassInfo.create(SlimePropertyMap.class, "slimepropertymap").register();
             TypeClassInfo.create(SlimeWorld.class, "slimeworld").register();
 
             addonInstance.loadClasses("space.gatt.skswm.elements.exprs");
