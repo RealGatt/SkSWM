@@ -1,6 +1,10 @@
 package space.gatt.skswm.elements.exprs;
 
 import ch.njol.skript.Skript;
+import ch.njol.skript.doc.Description;
+import ch.njol.skript.doc.Examples;
+import ch.njol.skript.doc.Name;
+import ch.njol.skript.doc.Since;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.ExpressionType;
 import ch.njol.skript.lang.SkriptParser;
@@ -12,6 +16,14 @@ import space.gatt.skswm.SWMAddon;
 import space.gatt.skswm.enums.SWMStorageType;
 
 import java.io.IOException;
+
+
+@Name("SlimeWorldManager - All SlimeWorlds")
+@Description("List all SlimeWorlds.")
+@Examples({"set {gameworld::worlds::*} to all slime worlds in file"})
+@Since("1.0.0")
+
+
 public class ExprSlimeWorlds  extends SimpleExpression<String> {
 
     static {
