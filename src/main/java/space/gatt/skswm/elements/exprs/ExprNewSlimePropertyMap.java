@@ -36,9 +36,7 @@ public class ExprNewSlimePropertyMap extends SimpleExpression<SlimePropertyMap> 
 
     @Override
     protected SlimePropertyMap[] get(Event event) {
-
         SlimePropertyMap map = new SlimePropertyMap();
-
         return new SlimePropertyMap[]{map};
     }
 

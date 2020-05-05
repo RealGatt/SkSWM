@@ -19,15 +19,15 @@ import space.gatt.skswm.enums.SWMStorageType;
 
 @Name("SlimeWorldManager - Load World Instance")
 @Description("Load a SlimeWorld Instance.")
-@Examples({"set {gameworld::skymap} to slime world named \"skymap\" from file", "set {gameworld::skymap} to read-only slime world named \"skymap\" from file"})
+@Examples({"set {gameworld::skymap} to new empty slime world named \"skymap\" from file", "set {gameworld::skymap} to new empty read-only slime world named \"skymap\" from file"})
 @Since("1.0.0")
 
-public class ExprSlimeWorldInstance extends SimpleExpression<SlimeWorld> {
+public class ExprEmptySlimeWorldInstance extends SimpleExpression<SlimeWorld> {
 
     static {
-        Skript.registerExpression(ExprSlimeWorldInstance.class, SlimeWorld.class, ExpressionType.SIMPLE,
-                "(slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%",
-                "(read-only|readonly|read only) (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%");
+        Skript.registerExpression(ExprEmptySlimeWorldInstance.class, SlimeWorld.class, ExpressionType.SIMPLE,
+                "[new ]empty (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%",
+                "[new ](read-only|readonly|read only) (slime world|slimeworld|slime-world) named %string% from %swmstoragetype% using properties %swmproperties%");
     }
 
     private boolean readOnly = false;
@@ -58,7 +58,7 @@ public class ExprSlimeWorldInstance extends SimpleExpression<SlimeWorld> {
         SlimePropertyMap props = this.properties.getSingle(event);
 
         try {
-            sl = SWMAddon.getInstance().getSlimeInstance().loadWorld(loader, worldName, readOnly, props);
+            sl = SWMAddon.getInstance().getSlimeInstance().createEmptyWorld(loader, worldName, readOnly, props);
         } catch (Exception e) {
             SWMAddon.log(event.getEventName() + " attempted to load a SlimeWorld that threw an error. Probably an invalid name?");
             e.printStackTrace();
