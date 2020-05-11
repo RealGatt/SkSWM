@@ -44,3 +44,9 @@ Mini Game server;
 
 ```
 
+## Upcoming Features
+
+> Cloning Worlds from a Template World
+> Migrating Worlds
+> Moving worlds between storage types
+
