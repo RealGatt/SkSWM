@@ -60,16 +60,19 @@ public class ExprSlimePropertyValue extends SimpleExpression<Object> {
         switch (property.getValueType()){
             case "String":
                 props.setString(property.getProperty(), value.toString());
+                break;
             case "Integer":
                 if (value instanceof Integer)
                     props.setInt(property.getProperty(), (Integer)value);
                 else
-                    Skript.error(property.getProperty() + " expected a Integer, but got " + value.toString());
+                    Skript.error(property.getProperty().getNbtName() + " expected a Integer, but got " + value.toString());
+                break;
             case "Boolean":
                 if (value instanceof Boolean)
                     props.setBoolean(property.getProperty(), (Boolean)value);
                 else
-                    Skript.error(property.getProperty() + " expected a Boolean, but got " + value.toString());
+                    Skript.error(property.getProperty().getNbtName() + " expected a Boolean, but got " + value.toString());
+                break;
         }
     }
 
