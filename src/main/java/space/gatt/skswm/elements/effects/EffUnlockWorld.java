@@ -44,7 +44,7 @@ public class EffUnlockWorld extends Effect {
     @Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
         this.worldName = (Expression<String>)expressions[0];
-        this.storageType = (Expression<SWMStorageType>)expressions[0];
+        this.storageType = (Expression<SWMStorageType>)expressions[1];
         return true;
     }
 
