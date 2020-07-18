@@ -23,7 +23,7 @@ import java.io.IOException;
 @Name("SlimeWorldManager - Clone World Instance")
 @Description("Clone a SlimeWorld Instance.")
 @Examples({"set {gameworld::skymapClone} to slime world cloned from {_anotherSlimeWorld} named \"SkyClone\" saved to file", "set {gameworld::skymapClone} to read-only slime world cloned from {_anotherSlimeWorld} named \"SkyClone\"  saved to file"})
-@Since("1.0.0")
+@Since("1.1.0")
 
 public class ExprClonedSlimeWorld extends SimpleExpression<SlimeWorld> {
 

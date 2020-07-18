@@ -54,6 +54,10 @@ public class ExprSlimePropertyValue extends SimpleExpression<Object> {
         }
 
         SlimePropertyMap props = this.properties.getSingle(e);
+        if (props == null){
+            Skript.error("Given properties is null");
+            return;
+        }
         SWMProperty property = this.propertyType.getSingle(e);
         Object value = delta[0];
 
@@ -62,8 +66,15 @@ public class ExprSlimePropertyValue extends SimpleExpression<Object> {
                 props.setString(property.getProperty(), value.toString());
                 break;
             case "Integer":
-                if (value instanceof Integer)
-                    props.setInt(property.getProperty(), (Integer)value);
+                Integer newVal = 0;
+                if (value instanceof Double)
+                    newVal = ((Double)value).intValue();
+                if (value instanceof Number)
+                    newVal = ((Number)value).intValue();
+                if (value instanceof Float)
+                    newVal = ((Float)value).intValue();
+                if (newVal instanceof Integer)
+                    props.setInt(property.getProperty(), newVal);
                 else
                     Skript.error(property.getProperty().getNbtName() + " expected a Integer, but got " + value.toString());
                 break;
