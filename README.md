@@ -1,4 +1,4 @@
-# SkSWM
+# SkSWM  ![Java CI with Maven](https://github.com/RealGatt/SkSWM/workflows/Java%20CI%20with%20Maven/badge.svg)
 Skript SlimeWorldManager addon
 
 # Requirements
